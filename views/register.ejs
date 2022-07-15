@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.module.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="signin">
+
+        <form action="/register" method="post" autocomplete="off">
+
+            <div class="group head">
+
+                <h2>Welcome Join Us,</h2>
+
+                <p>SignUp To Continue</p>
+
+            </div>
+
+            <div class="group">
+
+                <label for="name-field">Full Name &nbsp; &nbsp; &nbsp; &nbsp;</label><br>
+
+                <input type="text" name="username" id="name-field" required>
+
+            </div>
+            <div class="group">
+
+                <label for="Email-field">Email</label><br>
+
+                <input type="email" name="username" id="Email-field" required>
+
+            </div>
+            <div class="group">
+
+                <label for="password-field">Password</label><br>
+
+                <input type="password" name="username" id="password-field" required>
+
+            </div>
+
+            <div class="group">
+
+                <label for="con-password-field">Confirm Password</label><br>
+
+                <input type="text" name="password" id="con-password-field" required>
+
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
+            </div>
+
+            <div class="group">
+
+                <button id="signUp" onclick="register()"><span>Sign Up</span></button>
+
+            </div>
+
+            <div class="group sign-up-link">
+
+                <p>New User? <a href="/login">Login</a></p>
+
+            </div>
+
+        </form>
+
+    </div>
+</body>
+ <script src="js/script.js"></script>
+<!-- <script src="create.js"></script>  -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { analytics } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { auth } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
+    import { firestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
+  </script>
+</html>
