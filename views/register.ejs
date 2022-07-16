@@ -6,13 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.module.css">
-    <title>Login</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
+    <link href="css/responsive.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+    <title>Quizzie | Register</title>
 </head>
 
 <body>
+    <header class="header_section">
+        <div class="container-fluid" style="border-radius:15px;">
+          <div class="row">
+            <div class="col-lg-8">
+              <nav class="navbar navbar-expand-lg custom_nav-container " style="background-color:#6B46C3; width:150%; border-radius:15px;">
+                <a style="margin-left:9px;" class="navbar-brand" href="index.html">
+                  <span>
+                    Quizzie
+                  </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+  
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div class="d-flex  flex-column flex-lg-row align-items-center">
+                    <ul class="navbar-nav  ">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/about">About </a>
+                      </li>
+                      <!-- <li class="nav-item">
+                        <a class="nav-link" href="/service">Services </a>
+                      </li> -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/login"> Login</a>
+                      </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                      <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
     <div class="signin">
 
-        <form action="/register" method="post" autocomplete="off">
+        <div>
 
             <div class="group head">
 
@@ -26,21 +76,21 @@
 
                 <label for="name-field">Full Name &nbsp; &nbsp; &nbsp; &nbsp;</label><br>
 
-                <input type="text" name="username" id="name-field" required>
+                <input type="text" name="username" id="username" required>
 
             </div>
             <div class="group">
 
                 <label for="Email-field">Email</label><br>
 
-                <input type="email" name="username" id="Email-field" required>
+                <input type="email" name="email" id="email" required>
 
             </div>
             <div class="group">
 
                 <label for="password-field">Password</label><br>
 
-                <input type="password" name="username" id="password-field" required>
+                <input type="password" name="password" id="password" required>
 
             </div>
 
@@ -56,7 +106,7 @@
 
             <div class="group">
 
-                <button id="signUp" onclick="register()"><span>Sign Up</span></button>
+                <button id="signUp"><span>Sign Up</span></button>
 
             </div>
 
@@ -66,20 +116,70 @@
 
             </div>
 
-        </form>
+        </div>
 
     </div>
 </body>
- <script src="js/script.js"></script>
+<!-- <script src="js/script.js"></script> -->
 <!-- <script src="create.js"></script>  -->
 <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js'
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { analytics } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js'
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyC1BrdgrprS26eutIJeblUEjN6qutm4MQs",
+        authDomain: "code-brewers-959b8.firebaseapp.com",
+        databaseURL: "https://code-brewers-959b8-default-rtdb.firebaseio.com",
+        projectId: "code-brewers-959b8",
+        storageBucket: "code-brewers-959b8.appspot.com",
+        messagingSenderId: "99887190296",
+        appId: "1:99887190296:web:f7a408978054e577684e6d"
+    };
 
-    // Add Firebase products that you want to use
-    import { auth } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
-    import { firestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
-  </script>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    document.getElementById('signUp').addEventListener('click', (e) => {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var username = document.getElementById('username').value;
+
+        // updateProfile(auth.currentUser, {
+        //     displayName: username
+        // }).then(() => {
+        //     // Profile updated!
+        //     // ...
+        // }).catch((error) => {
+        //     // An error occurred
+        //     // ...
+        // });
+
+        // console.log(username);
+        
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                // const user = userCredential.user;
+                userCredential.user.displayName = username;
+                console.log(userCredential.user.displayName);
+                alert('User Created');
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(error);
+                // ..
+            });
+    })
+</script>
+
 </html>

@@ -1,0 +1,74 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.quiz-name {
+	width: 50%;
+	background-color: aquamarine;
+	margin: auto;
+	padding: 1rem;
+	margin-top: 2rem;
+}
+.quiz-name > input {
+	margin-top: 1rem;
+	width: 70%;
+	height: 40px;
+}
+
+.mcq-generator {
+	margin: auto;
+	margin-top: 1rem;
+	background-color: bisque;
+	width: 50%;
+	padding: 1rem;
+}
+
+.question-body > h3 {
+	font-size: 1.5rem;
+}
+.question-body > textarea {
+	margin-top: 1rem;
+	width: 70%;
+	height: 4rem;
+	font-size: 1rem;
+}
+.question-options {
+	margin-top: 1rem;
+}
+.question-options > label {
+	font-size: 1.2rem;
+}
+.question-options > textarea {
+	height: 1.5rem;
+	margin: 0;
+	padding: 0;
+}
+.correct-answer {
+	margin-top: 1rem;
+}
+.correct-answer > p {
+	font-size: 1.4rem;
+	margin-bottom: 0.5rem;
+}
+.correct-answer > textarea {
+	width: 40%;
+	height: 2.5rem;
+	font-size: 1rem;
+}
+
+.btn-container {
+	font-size: 2.2rem;
+	background-color: antiquewhite;
+	width: 3rem;
+	border-radius: 50%;
+}
+.add-btn {
+	margin-left: 8px;
+}
+
+.question {
+	margin-top: 2rem;
+}

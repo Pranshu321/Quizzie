@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/formgenerate.module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Create Quiz</title>
+</head>
+<body>
+    <!-- <h1>Index Page!</h1> -->
+    <div class="action-btn-container">
+        <div class="btn-container">
+        <div class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-name">
+        <h1>Quiz Name</h1>
+        <input type="text" placeholder="Enter Quiz Name">
+    </div>
+
+    <div class="mcq-generator">
+        <div class="question">
+            <div class="question-body">
+                <h3>Question</h3>
+                <Textarea required class="question-input" placeholder="Type Your Question Here"></Textarea>
+            </div>
+
+            <!-- <div class="options">
+                <p>Options-</p>
+                <input type="radio" id="css" name="fav_language" value="option1">
+                <label for="css">option1</label><br>
+                <input type="radio" id="css" name="fav_language" value="option2">
+                <label for="css">option2</label><br>
+                <input type="radio" id="css" name="fav_language" value="option3">
+                <label for="css">option3</label><br>
+                <input type="radio" id="css" name="fav_language" value="option4">
+                <label for="css">option4</label><br>
+            </div> -->
+
+
+            <div class="question-options">
+                <label for="option-1">Option 1</label>
+                <textarea name="option-1" id="" cols="30" rows="1"></textarea>
+                <br>
+                <label for="option-2">Option 2</label>
+                <textarea name="option-2" id="" cols="30" rows="1"></textarea>
+                <br>
+                <label for="option-3">Option 3</label>
+                <textarea name="option-3" id="" cols="30" rows="1"></textarea>
+                <br>
+                <label for="option-4">Option 4</label>
+                <textarea name="option-4" id="" cols="30" rows="1"></textarea>
+            </div>
+
+
+            <div class="correct-answer">
+                <p>Enter Correct Answer </p>
+                <textarea required placeholder="Type Correct Answer here"></textarea>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/formgenerate.js"></script>
+</body>
+</html>

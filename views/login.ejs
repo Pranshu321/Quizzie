@@ -2,87 +2,221 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.module.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/login.module.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>Quizzie | Login</title>
 </head>
 
 <body>
-    <div class="signin">
-        <% if(register==='res')  { %> 
-        <div class="alert alert-success" style="color: #0f5132;
+  <header class="header_section">
+    <div class="container-fluid" style="border-radius:15px;">
+      <div class="row">
+        <div class="col-lg-8">
+          <nav class="navbar navbar-expand-lg custom_nav-container "
+            style="background-color:#6B46C3; width:150%; border-radius:15px;">
+            <a style="margin-left:9px;" class="navbar-brand" href="index.html">
+              <span>
+                Quizzie
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="d-flex  flex-column flex-lg-row align-items-center">
+                <ul class="navbar-nav  ">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about">About </a>
+                  </li>
+                  <!-- <li class="nav-item">
+                        <a class="nav-link" href="/service">Services </a>
+                      </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login"> Login</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="signin">
+    <% if(register==='res' ) { %>
+      <div class="alert alert-success" style="color: #0f5132;
         background-color: #d1e7dd;
         border-color: #badbcc; padding: 10px 20px; border-radius: 6px;" role="alert">
-            Your are Succesfully Registered
-        </div>
-        <% } %> 
+        Your are Succesfully Registered
+      </div>
+      <% } %>
         <form action="/login" method="post">
 
-            <div class="group head">
+          <div class="group head">
 
-                <h2>Welcome Back,</h2>
+            <h2>Welcome Back,</h2>
 
-                <p>Sign In To Continue</p>
+            <p>Sign In To Continue</p>
 
-            </div>
+          </div>
 
-            <div class="group">
+          <div class="group">
 
-                <label for="username-field">Email or Username</label><br>
+            <label for="username-field">Email or Username</label><br>
 
-                <input type="text" name="username" id="username-field" required>
+            <input type="text" name="username" id="username-field" required>
 
-            </div>
+          </div>
 
-            <div class="group">
+          <div class="group">
 
-                <label for="password-field">Password</label><br>
+            <label for="password-field">Password</label><br>
 
-                <input type="password" name="password" id="password-field" required>
+            <input type="password" name="password" id="password-field" required>
 
-                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 
-            </div>
+          </div>
 
-            <div class="group forgot-pass-link">
+          <div class="group forgot-pass-link">
 
-                <a href="#">Forget Password?</a>
+            <a href="#">Forget Password?</a>
 
-            </div>
+          </div>
 
-            <div class="group">
+          <div class="group">
 
-                <button type="submit"><span>Login</span></button>
+            <button id="loginbut"><span>Login</span></button>
 
-            </div>
-            <div class="group">
+          </div>
+          <div class="group">
 
-                <button><span>SignIn with Google</span></button>
+            <button id="loginwithG"><span>SignIn with Google</span></button>
 
-            </div>
+          </div>
 
-            <div class="group sign-up-link">
+          <div class="group sign-up-link">
 
-                <p>New User? <a href="/register">Signup</a></p>
+            <p>New User? <a href="/register">Signup</a></p>
 
-            </div>
+          </div>
 
-        </form>
+          </>
 
-    </div>
+  </div>
 </body>
 <!-- <script src="script.js"></script> -->
 <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js'
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+  import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { analytics } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js'
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC1BrdgrprS26eutIJeblUEjN6qutm4MQs",
+    authDomain: "code-brewers-959b8.firebaseapp.com",
+    databaseURL: "https://code-brewers-959b8-default-rtdb.firebaseio.com",
+    projectId: "code-brewers-959b8",
+    storageBucket: "code-brewers-959b8.appspot.com",
+    messagingSenderId: "99887190296",
+    appId: "1:99887190296:web:f7a408978054e577684e6d"
+  };
 
-    // Add Firebase products that you want to use
-    import { auth } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
-    import { firestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
-  </script>
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  document.getElementById('loginbut').addEventListener('click', (e) => {
+    e.preventDefault();
+    var email = document.getElementById('username-field').value;
+    var password = document.getElementById('password-field').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        alert('You are succesfully logged In');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(error);
+      });
+
+  });
+
+
+  document.getElementById('loginwithG').addEventListener('click', (e) => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // console.log(result.displayName);
+        alert('You are Successfully Logged In');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const userid = user.uid;
+      const email = user.email;
+      user.displayName = 'Pranshu';
+      console.log(user);
+      window.location.href = '/dashboard';
+      // module.exports = user;
+      // window.location.replace("http://localhost:3000/dashboard");
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+</script>
+
 
 </html>
