@@ -16,7 +16,7 @@ router.post('/login', (req, res) => {
     res.render('dashboard');
 });
 
-router.get('/dashboard/form', (req, res) => {
+router.get('/form', (req, res) => {
     res.render('formGenerate');
 });
 
